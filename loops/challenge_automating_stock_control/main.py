@@ -19,3 +19,25 @@ for items in inventory:
     if current > discount_threshold and not on_sale:
         inventory[items][3] = True
 print("Processing completed.")
+
+"""
+PROCESSING_START = "Processing started"
+PROCESSING_END   = "Processing completed"
+
+print(PROCESSING_START)
+for item in inventory:
+    print(f"Processing {item}")
+    stock_data = inventory[item]
+    current_stock, min_stock, restock_amount, on_sale = stock_data
+
+    # restock in one calculation instead of looping
+    needed = max(0, min_stock - current_stock)
+    increments = -(-needed // restock_amount)
+    current_stock += increments * restock_amount
+    inventory[item][0] = current_stock
+
+    if current_stock > discount_threshold and not on_sale:
+        inventory[item][3] = True
+
+print(PROCESSING_END)
+"""
